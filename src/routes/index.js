@@ -1,8 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-import SignIn from 'pages/Authentication/SignIn'
-import SignUp from 'pages/Authentication/SignUp'
+import SignIn from 'pages/Auth/SignIn'
+import SignUp from 'pages/Auth/SignUp'
 
 export default function Routes () {
   return (

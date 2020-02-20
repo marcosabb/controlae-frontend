@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import normalize from 'styled-normalize'
 import { theme } from 'styled-tools'
+import 'react-toastify/dist/ReactToastify.min.css'
 
 const GlobalStyle = createGlobalStyle`
   ${normalize}
@@ -46,6 +47,10 @@ const GlobalStyle = createGlobalStyle`
   h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
     margin-bottom: ${theme('spacing.default')};
+  }
+
+  button {
+    letter-spacing: inherit;
   }
 `
 

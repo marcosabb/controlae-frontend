@@ -1,8 +1,10 @@
 import { all } from 'redux-saga/effects'
 
+import auth from './auth'
+
 function * rootSaga () {
   return yield all([
-    function hello () {}
+    auth
   ])
 }
 

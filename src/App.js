@@ -1,6 +1,7 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
+import { ToastContainer } from 'react-toastify'
 
 import Routes from './routes'
 import GlobalStyle from './styles/GlobalStyle'
@@ -14,6 +15,7 @@ export default function App () {
       <ThemeProvider theme={theme.light}>
         <Routes />
         <GlobalStyle />
+        <ToastContainer autoClose={3000} />
       </ThemeProvider>
     </Provider>
   )

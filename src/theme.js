@@ -1,15 +1,20 @@
 const shared = (colors) => ({
   colors: {
-    danger: '#e74c3c',
     white: '#fff',
+    danger: '#e74c3c',
+    blue: '#0652DD',
     ...colors
   },
 
   font: {
+    sm: {
+      size: '.875rem'
+    },
+
     default: {
       family: 'Roboto, sans-serif',
       size: '16px',
-      spacing: '1px',
+      spacing: '0.0200rem',
       color: colors.text
     }
   },

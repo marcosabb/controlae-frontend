@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import normalize from 'styled-normalize'
+import { theme } from 'styled-tools'
 
 const GlobalStyle = createGlobalStyle`
   ${normalize}
@@ -20,11 +21,11 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: sans-serif;
-    font-size: 16px;
-    color: #000;
-    letter-spacing: 0.0200rem;
-    background-color: #fff;
+    font-family: ${theme('font.default.family')};
+    font-size: ${theme('font.default.size')};
+    color: ${theme('font.default.color')};
+    letter-spacing: ${theme('font.default.spacing')};
+    background-color: ${theme('colors.background')};
   }
 
   ul {
@@ -44,7 +45,7 @@ const GlobalStyle = createGlobalStyle`
 
   h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
-    margin-bottom: 16px;
+    margin-bottom: ${theme('spacing.default')};
   }
 `
 

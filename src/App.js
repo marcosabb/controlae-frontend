@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
-import { ToastContainer } from 'react-toastify'
 
 import Lamp from 'components/Lamp'
 
@@ -36,7 +35,6 @@ export default function App () {
         <Lamp handleClick={handleToggle} />
         <Routes />
         <GlobalStyle />
-        <ToastContainer autoClose={3000} />
       </ThemeProvider>
     </Provider>
   )

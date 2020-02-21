@@ -1,7 +1,12 @@
 import { createGlobalStyle } from 'styled-components'
 import normalize from 'styled-normalize'
 import { theme } from 'styled-tools'
+import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.min.css'
+
+toast.configure({
+  autoClose: 3000
+})
 
 const GlobalStyle = createGlobalStyle`
   ${normalize}

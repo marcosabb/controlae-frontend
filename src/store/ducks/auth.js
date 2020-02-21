@@ -3,7 +3,7 @@ import { createReducer, createActions } from 'reduxsauce'
 
 const initialState = Immutable({
   user: JSON.parse(localStorage.getItem('@controlae:user')) || null,
-  token: localStorage.getItem('@controlae:user') || null,
+  token: localStorage.getItem('@controlae:token') || null,
   authenticated: !!localStorage.getItem('@controlae:user'),
   loading: false
 })

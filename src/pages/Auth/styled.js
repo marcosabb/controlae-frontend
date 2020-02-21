@@ -20,7 +20,7 @@ export const Wrapper = styled.div`
 
 export const Footer = styled.span`
   margin-top: ${theme('spacing.default')};
-  font-size: ${theme('font.sm.size')};
+  font-size: ${theme('font.sm')};
   color: ${theme('colors.text')};
   text-align: center;
 `

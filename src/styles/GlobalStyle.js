@@ -27,10 +27,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: ${theme('font.default.family')};
-    font-size: ${theme('font.default.size')};
-    color: ${theme('font.default.color')};
-    letter-spacing: ${theme('font.default.spacing')};
+    font-family: ${theme('font.reset.family')};
+    font-size: ${theme('font.reset.size')};
+    color: ${theme('font.reset.color')};
+    letter-spacing: ${theme('font.reset.spacing')};
     background-color: ${theme('colors.background')};
   }
 

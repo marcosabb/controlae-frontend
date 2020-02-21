@@ -7,7 +7,7 @@ import Loading from 'components/Loading'
 
 import Device from './Device'
 
-import { Container, Wrapper, List } from './styled'
+import { Container, Wrapper, Title, List } from './styled'
 
 export default function Devices () {
   const dispatch = useDispatch()
@@ -15,11 +15,13 @@ export default function Devices () {
 
   useEffect(() => {
     dispatch(DevicesActions.fetchDevicesRequest())
-  }, [])
+  }, [dispatch])
 
   return (
     <Container>
       <Wrapper>
+        <Title>Dispositivos</Title>
+
         <List>
           {loading
             ? <Loading full />

@@ -23,7 +23,7 @@ export const Icon = styled(MdSettingsRemote).attrs({
 
 export const Type = styled.span`
   margin-top: ${theme('spacing.sm')};
-  font-size: ${theme('fontSize.md')};
+  font-size: ${theme('font.sm')};
   text-transform: uppercase;
   letter-spacing: 0.125rem;
 `

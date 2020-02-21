@@ -9,10 +9,6 @@ export const Container = styled(Link)`
   background-color: ${theme('colors.grey')};
   border-radius: ${theme('radius.xs')};
   overflow: hidden;
-
-  &:not(:last-child) {
-    margin-bottom: ${theme('spacing.default')}
-  }
 `
 
 export const Label = styled.div`
@@ -22,13 +18,13 @@ export const Label = styled.div`
   width: 50px;
   height: 50px;
   margin-right: ${theme('spacing.sm')};
-  font-size: ${theme('font.sm.size')};
+  font-size: ${theme('font.sm')};
   font-weight: 700;
   color: ${theme('colors.white')};
   background-image: linear-gradient(${prop('gradient')});
 `
 
 export const Brand = styled.span`
-  font-size: ${theme('font.sm.size')};
+  font-size: ${theme('font.sm')};
   color: ${theme('colors.text')};
 `

@@ -11,7 +11,7 @@ export const Container = styled.div`
   input {
     height: 46px;
     padding: 0 ${ifProp('toggle', '42px', 0)} 0 ${theme('spacing.sm')};
-    font-size: ${theme('font.sm.size')};
+    font-size: ${theme('font.sm')};
     color: ${theme('colors.text')};
     background-color:
       ${ifProp('error',
@@ -40,13 +40,13 @@ export const Wrapper = styled.label`
 
 export const Label = styled.span`
   margin-bottom: ${theme('spacing.xs')};
-  font-size: ${theme('font.sm.size')};
+  font-size: ${theme('font.sm')};
   color: ${theme('colors.text')};
 `
 
 export const Error = styled.span`
   margin-top: ${theme('spacing.xs')};
-  font-size: ${theme('font.sm.size')};
+  font-size: ${theme('font.sm')};
   color: ${theme('colors.danger')};
 `
 

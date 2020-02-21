@@ -3,9 +3,9 @@ import { theme } from 'styled-tools'
 import { MdLightbulbOutline } from 'react-icons/md'
 
 export const Container = styled.button`
-  position: absolute;
-  bottom: ${theme('spacing.lg')};
-  left: ${theme('spacing.lg')};
+  position: fixed;
+  bottom: ${theme('spacing.default')};
+  left: ${theme('spacing.default')};
   width: 48px;
   height: 48px;
   border-radius: 50%;

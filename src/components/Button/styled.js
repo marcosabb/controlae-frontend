@@ -6,7 +6,7 @@ export const Container = styled.button`
   width: ${ifProp('fluid', '100%', 'auto')};
   height: 46px;
   padding: 0 ${theme('spacing.sm')};
-  font-size: ${theme('font.sm.size')};
+  font-size: ${theme('font.sm')};
   color: ${theme('colors.white')};
   border: none;
   border-radius: ${theme('radius.xs')};

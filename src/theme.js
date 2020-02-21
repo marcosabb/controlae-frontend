@@ -7,16 +7,18 @@ const shared = (colors) => ({
   },
 
   font: {
-    sm: {
-      size: '.875rem'
-    },
-
-    default: {
+    reset: {
       family: 'Roboto, sans-serif',
       size: '16px',
       spacing: '0.0200rem',
       color: colors.text
-    }
+    },
+
+    xs: '.75rem',
+    sm: '.875rem',
+    default: '1rem',
+    md: '1.25rem',
+    lg: '1.5rem'
   },
 
   spacing: {

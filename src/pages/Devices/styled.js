@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import media from 'styled-media-query'
 import { theme } from 'styled-tools'
 
 export const Container = styled.section`
@@ -14,6 +15,15 @@ export const Wrapper = styled.div`
 `
 
 export const List = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-gap: ${theme('spacing.default')};
+
+  ${media.greaterThan('medium')`
+    grid-template-columns: repeat(3, 1fr);
+  `}
+`
+
+export const Title = styled.h1`
+  font-size: ${theme('font.lg')};
+  margin-bottom: ${theme('spacing.lg')};
 `

@@ -7,7 +7,7 @@ import Form from '../Form'
 
 import { AuthActions } from 'store/ducks/auth'
 
-import { Container, Wrapper } from '../styled'
+import { Container, Wrapper, Footer, Anchor } from '../styled'
 
 export default function SignIn () {
   const dispatch = useDispatch()
@@ -25,6 +25,10 @@ export default function SignIn () {
           label='Entrar'
           handleSubmit={handleSubmit}
         />
+
+        <Footer>
+          Ainda não possui uma conta? <Anchor to='/signup'>Cadastre-se.</Anchor>
+        </Footer>
       </Wrapper>
     </Container>
   )

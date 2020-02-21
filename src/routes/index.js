@@ -1,6 +1,9 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Switch } from 'react-router-dom'
 import { ConnectedRouter } from 'connected-react-router'
+
+import Guest from './guest'
+import Private from './private'
 
 import SignIn from 'pages/Auth/SignIn'
 import SignUp from 'pages/Auth/SignUp'
@@ -12,9 +15,10 @@ export default function Routes () {
   return (
     <ConnectedRouter history={history}>
       <Switch>
-        <Route path='/signin' component={SignIn} />
-        <Route path='/signup' component={SignUp} />
-        <Route path='/devices' component={Devices} exact />
+        <Guest path='/signin' component={SignIn} />
+        <Guest path='/signup' component={SignUp} />
+
+        <Private path='/devices' component={Devices} exact />
       </Switch>
     </ConnectedRouter>
   )

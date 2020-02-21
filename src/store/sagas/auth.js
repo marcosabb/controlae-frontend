@@ -1,4 +1,5 @@
 import { takeLatest, call, put, all } from 'redux-saga/effects'
+import { push } from 'connected-react-router'
 import { toast } from 'react-toastify'
 
 import api from 'services/api'
@@ -18,6 +19,8 @@ function * signIn ({ email, password }) {
 
     localStorage.setItem('@controlae:user', JSON.stringify(user))
     localStorage.setItem('@controlae:token', token)
+
+    yield put(push('/devices'))
   } catch (error) {
     yield put(AuthActions.signInFailure())
 
@@ -35,6 +38,8 @@ function * signUp ({ email, password }) {
     })
 
     yield put(AuthActions.signUpSuccess())
+
+    yield put(push('/signin'))
   } catch (error) {
     yield put(AuthActions.signUpFailure())
 
@@ -44,9 +49,11 @@ function * signUp ({ email, password }) {
   }
 }
 
-function signOut () {
+function * signOut () {
   localStorage.removeItem('@controlae:user')
   localStorage.removeItem('@controlae:token')
+
+  yield put(push('/signin'))
 }
 
 export default all([

@@ -1,19 +1,23 @@
 import React from 'react'
 import t from 'prop-types'
 
-import { Container, Anchor, Wrapper, Icon, Type } from './styled'
+import { Container, Anchor, Wrapper, Icon, Power, Name } from './styled'
 
 export default function Logo ({ to }) {
   return (
     <Container>
       {to ? (
         <Anchor to={to}>
-          <Icon />
+          <Icon>
+            <Power />
+          </Icon>
         </Anchor>
       ) : (
         <Wrapper>
-          <Icon />
-          <Type>Controlaê</Type>
+          <Icon>
+            <Power />
+          </Icon>
+          <Name>Controlaê</Name>
         </Wrapper>
       )}
     </Container>

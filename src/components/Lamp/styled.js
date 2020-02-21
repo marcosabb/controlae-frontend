@@ -19,7 +19,8 @@ export const Container = styled.button`
   }
 `
 
-export const Icon = styled(MdLightbulbOutline).attrs(({ theme }) => ({
-  size: 24,
-  color: theme.colors.text
-}))``
+export const Icon = styled(MdLightbulbOutline).attrs({
+  size: 24
+})`
+  color: ${theme('colors.text')}
+`

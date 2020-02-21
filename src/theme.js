@@ -45,7 +45,7 @@ export default {
     ripple: 'rgba(23, 24, 34, .08)',
     placeholder: 'rgba(23, 24, 34, .5)',
     grey: '#f1f3f6',
-    status: 'dark-content'
+    lightgrey: '#fcfdfe'
   }),
 
   dark: shared({
@@ -55,6 +55,6 @@ export default {
     ripple: 'rgba(255, 255, 255, .08)',
     placeholder: 'rgba(255, 255, 255, .5)',
     grey: '#212330',
-    status: 'light-content'
+    lightgrey: '#191a24'
   })
 }

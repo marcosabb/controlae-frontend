@@ -2,6 +2,8 @@ import React from 'react'
 import t from 'prop-types'
 import { Route, Redirect } from 'react-router-dom'
 
+import Default from 'templates/Default'
+
 import store from 'store'
 
 export default function PrivateRoute ({ component: Component, ...rest }) {
@@ -11,7 +13,11 @@ export default function PrivateRoute ({ component: Component, ...rest }) {
     <Route
       render={props => (
         authenticated
-          ? <Component {...props} />
+          ? (
+            <Default>
+              <Component {...props} />
+            </Default>
+          )
           : (
             <Redirect to={{
               pathname: '/signin',

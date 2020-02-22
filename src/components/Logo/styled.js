@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { FiPower } from 'react-icons/fi'
-import { theme } from 'styled-tools'
+import { MdSettingsRemote } from 'react-icons/md'
+import { theme, prop } from 'styled-tools'
 
 export const Container = styled.div``
 
@@ -16,18 +16,13 @@ export const Wrapper = styled.div`
 `
 
 export const Icon = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background-color: ${theme('colors.ripple')};
-  border-radius: 50%;
+  width: ${prop('size')}px;
+  height: ${prop('size')}px;
 `
 
-export const Power = styled(FiPower).attrs({
-  size: 24
-})`
+export const Remote = styled(MdSettingsRemote).attrs(({ size }) => ({
+  size
+}))`
   color: ${theme('colors.blue')};
 `
 

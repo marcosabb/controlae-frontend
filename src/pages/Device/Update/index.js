@@ -33,7 +33,7 @@ export default function Update () {
   return (
     <Container>
       <Wrapper>
-        <Title>Adicionar dispositivo</Title>
+        <Title>Atualizar dispositivo</Title>
 
         {(loading.show || !selected)
           ? <Loading full />

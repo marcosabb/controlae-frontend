@@ -14,7 +14,7 @@ export default function Button ({
       disabled={disabled}
       variant={variant}
       fluid={fluid}
-      handleClick={type === 'button' ? handleClick : undefined}
+      onClick={type === 'button' ? handleClick : undefined}
     >
       {loading ? <Loading /> : children}
     </Container>
@@ -22,19 +22,17 @@ export default function Button ({
 }
 
 Button.defaultProps = {
-  type: 'button',
   disabled: false,
   loading: false,
-  variant: 'primary',
   fluid: false,
   handleClick: () => {}
 }
 
 Button.propTypes = {
-  type: t.string,
+  type: t.string.isRequired,
   disabled: t.bool,
   loading: t.bool,
-  variant: t.string,
+  variant: t.string.isRequired,
   fluid: t.bool,
   handleClick: t.func,
   children: t.node.isRequired

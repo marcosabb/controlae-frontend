@@ -23,7 +23,15 @@ export const List = styled.div`
   `}
 `
 
-export const Title = styled.h1`
-  font-size: ${theme('font.lg')};
+export const Header = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: ${theme('spacing.lg')};
+`
+
+export const Title = styled.h1`
+  margin-bottom: 0;
+  font-size: ${theme('font.lg')};
+  font-weight: 700;
 `

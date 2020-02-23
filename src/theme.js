@@ -35,6 +35,10 @@ const shared = (colors) => ({
     default: '16px',
     md: '32px',
     lg: '64px'
+  },
+
+  border: {
+    primary: `1px solid ${colors.ripple}`
   }
 })
 

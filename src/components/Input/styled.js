@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { theme, ifProp, withProp } from 'styled-tools'
 import { transparentize } from 'polished'
 import { MdRemoveRedEye } from 'react-icons/md'
@@ -6,11 +6,10 @@ import { MdRemoveRedEye } from 'react-icons/md'
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: ${theme('spacing.default')};
 
   input {
     height: 46px;
-    padding: 0 ${ifProp('toggle', '42px', 0)} 0 ${theme('spacing.sm')};
+    padding: 0 ${theme('spacing.sm')};
     font-size: ${theme('font.sm')};
     color: ${theme('colors.text')};
     background-color:
@@ -19,7 +18,7 @@ export const Container = styled.div`
         theme('colors.grey')
       )}
     ;
-    border: none;
+    border: ${theme('border.primary')};
     border-radius: ${theme('radius.xs')};
 
     &:focus {
@@ -29,6 +28,10 @@ export const Container = styled.div`
     &::placeholder {
       color: ${theme('colors.placeholder')};
     }
+
+    ${ifProp('toggle', css`
+      padding: 0 42px 0 ${theme('spacing.sm')};
+    `, null)}
   }
 `
 
@@ -65,7 +68,7 @@ export const Button = styled.button`
   }
 `
 
-export const Icon = styled(MdRemoveRedEye).attrs({
+export const Toggle = styled(MdRemoveRedEye).attrs({
   size: 18
 })`
   color: ${theme('colors.text')};

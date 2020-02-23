@@ -4,7 +4,13 @@ import { createActions, createReducer } from 'reduxsauce'
 const initialState = Immutable({
   data: [],
   selected: null,
-  loading: false
+  loading: {
+    fetch: false,
+    show: false,
+    create: false,
+    update: false,
+    delete: false
+  }
 })
 
 const { Types, Creators } = createActions({
@@ -31,49 +37,49 @@ const { Types, Creators } = createActions({
 
 export const devices = createReducer(initialState, {
   [Types.FETCH_DEVICES_REQUEST]: state => (
-    state.merge({ loading: true })
+    state.merge({ loading: { ...state.loading, fetch: true } })
   ),
 
   [Types.FETCH_DEVICES_SUCCESS]: (state, { devices }) => (
     state.merge({
       data: devices,
-      loading: false
+      loading: { ...state.loading, fetch: false }
     })
   ),
 
   [Types.FETCH_DEVICES_FAILURE]: state => (
-    state.merge({ loading: false })
+    state.merge({ loading: { ...state.loading, fetch: false } })
   ),
 
   [Types.SHOW_DEVICE_REQUEST]: state => (
-    state.merge({ loading: true })
+    state.merge({ loading: { ...state.loading, show: true } })
   ),
 
   [Types.SHOW_DEVICE_SUCCESS]: (state, { device }) => (
     state.merge({
       selected: device,
-      loading: false
+      loading: { ...state.loading, show: false }
     })
   ),
 
   [Types.SHOW_DEVICE_FAILURE]: state => (
-    state.merge({ loading: false })
+    state.merge({ loading: { ...state.loading, show: false } })
   ),
 
   [Types.CREATE_DEVICE_REQUEST]: state => (
-    state.merge({ loading: true })
+    state.merge({ loading: { ...state.loading, create: true } })
   ),
 
   [Types.CREATE_DEVICE_SUCCESS]: state => (
-    state.merge({ loading: false })
+    state.merge({ loading: { ...state.loading, create: false } })
   ),
 
   [Types.CREATE_DEVICE_FAILURE]: state => (
-    state.merge({ loading: false })
+    state.merge({ loading: { ...state.loading, create: false } })
   ),
 
   [Types.UPDATE_DEVICE_REQUEST]: state => (
-    state.merge({ loading: true })
+    state.merge({ loading: { ...state.loading, update: true } })
   ),
 
   [Types.UPDATE_DEVICE_SUCCESS]: (state, { device }) => (
@@ -83,27 +89,27 @@ export const devices = createReducer(initialState, {
           ? { ...device }
           : item
       ),
-      loading: false
+      loading: { ...state.loading, update: false }
     })
   ),
 
   [Types.UPDATE_DEVICE_FAILURE]: state => (
-    state.merge({ loading: false })
+    state.merge({ loading: { ...state.loading, update: false } })
   ),
 
   [Types.DELETE_DEVICE_REQUEST]: state => (
-    state.merge()
+    state.merge({ loading: { ...state.loading, delete: true } })
   ),
 
   [Types.DELETE_DEVICE_SUCCESS]: (state, { id }) => (
     state.merge({
       data: state.data.filter(item => item._id !== id),
-      loading: false
+      loading: { ...state.loading, delete: false }
     })
   ),
 
   [Types.DELETE_DEVICE_FAILURE]: state => (
-    state.merge()
+    state.merge({ loading: { ...state.loading, delete: false } })
   )
 })
 

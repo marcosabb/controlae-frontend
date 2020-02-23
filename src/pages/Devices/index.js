@@ -43,7 +43,7 @@ export default function Devices () {
         </Header>
 
         <List>
-          {loading
+          {(loading.fetch || !data)
             ? <Loading full />
             : data.map(({ _id, label, brand, gradient }) => (
               <Device

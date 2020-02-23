@@ -35,7 +35,7 @@ export default function Update () {
       <Wrapper>
         <Title>Adicionar dispositivo</Title>
 
-        {(loading && !selected)
+        {(loading.show || !selected)
           ? <Loading full />
           : (
             <Form

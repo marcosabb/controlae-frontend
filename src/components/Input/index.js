@@ -3,7 +3,7 @@ import t from 'prop-types'
 import { Field } from 'formik'
 
 import {
-  Container, Wrapper, Label, Error, Button, Toggle
+  Container, Wrapper, Label, Error, Button, Eye, EyeClosed
 } from './styled'
 
 export default function Input ({
@@ -30,7 +30,7 @@ export default function Input ({
 
         {toggle && (
           <Button type='button' onClick={toggleValue}>
-            <Toggle />
+            {visible ? <EyeClosed /> : <Eye />}
           </Button>
         )}
       </Wrapper>

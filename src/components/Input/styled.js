@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { theme, ifProp, withProp } from 'styled-tools'
 import { transparentize } from 'polished'
-import { MdRemoveRedEye } from 'react-icons/md'
+import { IoMdEye, IoMdEyeOff } from 'react-icons/io'
 
 export const Container = styled.div`
   display: flex;
@@ -68,7 +68,13 @@ export const Button = styled.button`
   }
 `
 
-export const Toggle = styled(MdRemoveRedEye).attrs({
+export const Eye = styled(IoMdEye).attrs({
+  size: 18
+})`
+  color: ${theme('colors.text')};
+`
+
+export const EyeClosed = styled(IoMdEyeOff).attrs({
   size: 18
 })`
   color: ${theme('colors.text')};

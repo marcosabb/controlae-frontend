@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { theme, ifProp, withProp } from 'styled-tools'
 import { transparentize } from 'polished'
 import { MdKeyboardArrowDown } from 'react-icons/md'
@@ -21,16 +21,20 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   height: 46px;
   padding: 0 ${theme('spacing.sm')};
-  background-color:
-      ${ifProp('error',
-        withProp(theme('colors.danger'), transparentize(0.92)),
-        theme('colors.grey')
-      )}
-    ;
+  background-color: ${theme('colors.grey')};
   border: ${theme('border.primary')};
   border-radius: ${theme('radius.xs')};
   user-select: none;
   cursor: pointer;
+
+  ${ifProp('error', css`
+    background-color: ${withProp(theme('colors.danger'), transparentize(0.92))};
+  `, null)}
+
+  ${ifProp('disabled', css`
+    background-color: ${theme('colors.ripple')};
+    cursor: initial;
+  `, null)}
 `
 
 export const Value = styled.span`

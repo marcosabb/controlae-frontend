@@ -12,12 +12,7 @@ export const Container = styled.div`
     padding: 0 ${theme('spacing.sm')};
     font-size: ${theme('font.sm')};
     color: ${theme('colors.text')};
-    background-color:
-      ${ifProp('error',
-        withProp(theme('colors.danger'), transparentize(0.92)),
-        theme('colors.grey')
-      )}
-    ;
+    background-color: ${theme('colors.grey')};
     border: ${theme('border.primary')};
     border-radius: ${theme('radius.xs')};
 
@@ -31,6 +26,15 @@ export const Container = styled.div`
 
     ${ifProp('toggle', css`
       padding: 0 42px 0 ${theme('spacing.sm')};
+    `, null)}
+
+    ${ifProp('error', css`
+      background-color:
+        ${withProp(theme('colors.danger'), transparentize(0.92))};
+    `, null)}
+
+    ${ifProp('disabled', css`
+      background-color: ${theme('colors.ripple')};
     `, null)}
   }
 `

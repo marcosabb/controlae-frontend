@@ -9,7 +9,7 @@ import {
 } from './styled'
 
 export default function Select ({
-  form, field, label, placeholder, options, error, handleChange
+  form, field, label, placeholder, options, disabled, error, handleChange
 }) {
   const [visible, setVisible] = useState(false)
   const [content, setContent] = useState('')
@@ -25,7 +25,7 @@ export default function Select ({
   }, [name, value, setFieldValue])
 
   const handleToggle = useCallback(() => {
-    setVisible(!visible)
+    if (!disabled) setVisible(!visible)
   }, [visible])
 
   const handleClose = useCallback(() => {
@@ -44,7 +44,7 @@ export default function Select ({
       <Container>
         <Label>{label}</Label>
 
-        <Wrapper error={error} onClick={handleToggle}>
+        <Wrapper disabled={disabled} error={error} onClick={handleToggle}>
           <Value selected={!!value}>{value ? content : placeholder}</Value>
           <Arrow visible={visible ? 1 : 0} />
         </Wrapper>
@@ -69,7 +69,8 @@ export default function Select ({
 }
 
 Select.defaultProps = {
-  error: '',
+  disabled: false,
+  error: null,
   handleSelect: () => {}
 }
 
@@ -83,10 +84,11 @@ Select.propTypes = {
   }).isRequired,
   label: t.string.isRequired,
   placeholder: t.string.isRequired,
-  error: t.string,
   options: t.arrayOf(t.shape({
     label: t.string,
     value: t.string
   })).isRequired,
+  disabled: t.bool,
+  error: t.string,
   handleChange: t.func
 }

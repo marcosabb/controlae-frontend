@@ -7,7 +7,7 @@ import {
 } from './styled'
 
 export default function Input ({
-  type, name, label, placeholder, error, toggle
+  type, name, label, placeholder, disabled, error, toggle
 }) {
   const [visible, setVisible] = useState(false)
 
@@ -16,7 +16,7 @@ export default function Input ({
   }, [visible])
 
   return (
-    <Container error={error} toggle={toggle}>
+    <Container disabled={disabled} error={error} toggle={toggle}>
       <Wrapper>
         <Label>{label}</Label>
         <Field
@@ -25,7 +25,9 @@ export default function Input ({
               ? (visible ? 'text' : type)
               : type
           }
-          name={name} placeholder={placeholder}
+          name={name}
+          placeholder={placeholder}
+          disabled={disabled}
         />
 
         {toggle && (
@@ -41,6 +43,7 @@ export default function Input ({
 }
 
 Input.propTypes = {
+  disabled: false,
   error: null,
   toggle: false
 }
@@ -50,6 +53,7 @@ Input.propTypes = {
   name: t.string.isRequired,
   label: t.string.isRequired,
   placeholder: t.string.isRequired,
+  disabled: t.bool,
   error: t.string,
   toggle: t.bool
 }

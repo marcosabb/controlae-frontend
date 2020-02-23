@@ -53,6 +53,7 @@ export default function Form ({ label, values, handleSubmit }) {
               label='Tipo'
               placeholder='Selecione o tipo'
               options={types}
+              disabled={values && values.type}
               error={errors.type && touched.type && errors.type}
               handleChange={(value) => setType(value)}
               component={Select}
@@ -63,6 +64,7 @@ export default function Form ({ label, values, handleSubmit }) {
               name='brand'
               label='Marca'
               placeholder='Digite uma marca'
+              disabled={values && values.type}
               error={errors.brand && touched.brand && errors.brand}
             />
           </Details>
@@ -90,7 +92,7 @@ export default function Form ({ label, values, handleSubmit }) {
           <Button
             type='submit'
             variant='primary'
-            disabled={isSubmitting}
+            disabled={isSubmitting || !type}
             loading={isSubmitting}
           >
             {label}

@@ -55,6 +55,7 @@ export default function Form ({ label, handleSubmit }) {
 
           <Button
             type='submit'
+            variant='primary'
             loading={isSubmitting}
             disabled={isSubmitting}
             fluid

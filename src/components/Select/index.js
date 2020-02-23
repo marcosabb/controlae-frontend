@@ -26,7 +26,7 @@ export default function Select ({
 
   const handleToggle = useCallback(() => {
     if (!disabled) setVisible(!visible)
-  }, [visible])
+  }, [disabled, visible])
 
   const handleClose = useCallback(() => {
     if (visible) setVisible(false)

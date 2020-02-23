@@ -40,7 +40,7 @@ export default function Update () {
           : (
             <Form
               label='Atualizar'
-              values={selected}
+              defaultValues={selected}
               handleSubmit={handleUpdate}
             />
           )}

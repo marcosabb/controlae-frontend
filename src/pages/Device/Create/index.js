@@ -13,6 +13,8 @@ function Create () {
   const handleCreate = useCallback((values) => {
     delete values[values.type]
 
+    console.log(values)
+
     dispatch(DevicesActions.createDeviceRequest(values))
   }, [dispatch])
 

@@ -25,12 +25,16 @@ const types = [
   { label: 'Ventilador', value: 'Ventilador' }
 ]
 
-export default function Form ({ label, values, handleSubmit }) {
-  const [type, setType] = useState(values ? values.type.value : null)
+export default function Form ({ label, defaultValues, handleSubmit }) {
+  const [type, setType] = useState(
+    defaultValues
+      ? defaultValues?.type?.value
+      : null
+  )
 
   return (
     <Formik
-      initialValues={values || initialValues}
+      initialValues={defaultValues || initialValues}
       validationSchema={schema}
       onSubmit={(values, { setSubmitting }) => {
         handleSubmit({
@@ -45,7 +49,7 @@ export default function Form ({ label, values, handleSubmit }) {
       }}
       enableReinitialize
     >
-      {({ errors, touched, isSubmitting }) => (
+      {({ values, errors, touched, isSubmitting }) => (
         <Container>
           <Details>
             <Field
@@ -53,7 +57,7 @@ export default function Form ({ label, values, handleSubmit }) {
               label='Tipo'
               placeholder='Selecione o tipo'
               options={types}
-              disabled={values && values.type}
+              disabled={!!defaultValues?.type}
               error={errors.type && touched.type && errors.type}
               handleChange={(value) => setType(value)}
               component={Select}
@@ -64,7 +68,7 @@ export default function Form ({ label, values, handleSubmit }) {
               name='brand'
               label='Marca'
               placeholder='Digite uma marca'
-              disabled={values && values.type}
+              disabled={!!defaultValues?.type}
               error={errors.brand && touched.brand && errors.brand}
             />
           </Details>
@@ -78,7 +82,7 @@ export default function Form ({ label, values, handleSubmit }) {
                     key={name}
                     type='text'
                     name={
-                      values
+                      defaultValues
                         ? `control.${name}`
                         : `${type}.control.${name}`
                     }
@@ -89,10 +93,11 @@ export default function Form ({ label, values, handleSubmit }) {
               </Fields>
             </Control>
           )}
+
           <Button
             type='submit'
             variant='primary'
-            disabled={isSubmitting || !type}
+            disabled={isSubmitting || (defaultValues ? false : !values[type])}
             loading={isSubmitting}
           >
             {label}
@@ -109,6 +114,6 @@ Form.defaultProps = {
 
 Form.propTypes = {
   label: t.string.isRequired,
-  values: t.shape(),
+  defaultValues: t.shape(),
   handleSubmit: t.func.isRequired
 }

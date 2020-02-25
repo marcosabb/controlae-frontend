@@ -28,11 +28,10 @@ export const initialValues = {
 export const fields = {
   Televisão: [
     { name: 'power', label: 'Liga/Desliga' },
-    { name: 'info', label: 'Liga/Desliga' },
+    { name: 'source', label: 'Fonte' },
     { name: 'menu', label: 'Menu' },
-    { name: 'something', label: 'Liga/Desliga' },
-    { name: 'keypad', label: 'Números' },
-    { name: 'return', label: 'Retornar' },
+    { name: 'home', label: 'Início' },
+    { name: 'back', label: 'Retornar' },
     { name: 'up', label: 'Cima' },
     { name: 'down', label: 'Baixo' },
     { name: 'left', label: 'Direita' },

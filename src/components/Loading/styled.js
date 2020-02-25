@@ -1,5 +1,6 @@
 import styled, { keyframes, css } from 'styled-components'
-import { ifProp } from 'styled-tools'
+import { theme, ifProp, withProp } from 'styled-tools'
+import { transparentize } from 'polished'
 
 const spin = keyframes`
   from {
@@ -28,8 +29,8 @@ export const Container = styled.div`
 export const Loading = styled.span`
   width: 22px;
   height: 22px;
-  border: 2px solid rgba(0, 0, 0, .2);
-  border-top-color: rgba(0, 0, 0, .6);
+  border: 2px solid ${withProp(theme('colors.text'), transparentize(0.6))};
+  border-top-color: ${withProp(theme('colors.text'), transparentize(0.2))};
   border-radius: 50%;
   animation: 1s 0.2s ${spin} infinite;
 `

@@ -17,7 +17,7 @@ const middlewares = [
 
 const enhancer = process.env.NODE_ENV === 'development'
   ? compose(applyMiddleware(...middlewares), logger())
-  : null
+  : applyMiddleware(...middlewares)
 
 const store = createStore(rootReducer(history), enhancer)
 

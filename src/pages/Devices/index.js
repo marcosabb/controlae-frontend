@@ -29,7 +29,13 @@ export default function Devices () {
   }, [history])
 
   const handleDelete = useCallback((id) => {
-    dispatch(DevicesActions.deleteDeviceRequest(id))
+    const sure = window.confirm(
+      'Você tem certeza que quer deletar esse dispositivo?'
+    )
+
+    if (sure) {
+      dispatch(DevicesActions.deleteDeviceRequest(id))
+    }
   }, [dispatch])
 
   return (
@@ -38,7 +44,7 @@ export default function Devices () {
         <Header>
           <Title>Dispositivos</Title>
           <Button type='button' variant='primary' handleClick={handleCreate}>
-            Novo dispositivo
+            Novo
           </Button>
         </Header>
 

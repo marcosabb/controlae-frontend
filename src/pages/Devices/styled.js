@@ -14,15 +14,6 @@ export const Wrapper = styled.div`
   margin: 0 auto;
 `
 
-export const List = styled.div`
-  display: grid;
-  grid-gap: ${theme('spacing.default')};
-
-  ${media.greaterThan('medium')`
-    grid-template-columns: repeat(4, 1fr);
-  `}
-`
-
 export const Header = styled.div`
   display: flex;
   align-items: center;
@@ -34,4 +25,18 @@ export const Title = styled.h1`
   margin-bottom: 0;
   font-size: ${theme('font.lg')};
   font-weight: 700;
+`
+
+export const List = styled.div`
+  display: grid;
+  grid-gap: ${theme('spacing.default')};
+
+  ${media.greaterThan('medium')`
+    grid-template-columns: repeat(4, 1fr);
+  `}
+`
+
+export const Empty = styled.p`
+  margin-bottom: 0;
+  font-size: ${theme('font.sm')};
 `

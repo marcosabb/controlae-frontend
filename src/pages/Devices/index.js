@@ -9,7 +9,7 @@ import Button from 'components/Button'
 
 import Device from './Device'
 
-import { Container, Wrapper, Header, Title, List } from './styled'
+import { Container, Wrapper, Header, Title, Empty, List } from './styled'
 
 export default function Devices () {
   const dispatch = useDispatch()
@@ -47,6 +47,10 @@ export default function Devices () {
             Novo
           </Button>
         </Header>
+
+        {(!loading.fetch && !data.length) && (
+          <Empty>Você não possui nenhum dispositivo cadastrado.</Empty>
+        )}
 
         <List>
           {(loading.fetch || !data)

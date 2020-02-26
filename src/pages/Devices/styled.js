@@ -19,7 +19,7 @@ export const List = styled.div`
   grid-gap: ${theme('spacing.default')};
 
   ${media.greaterThan('medium')`
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   `}
 `
 

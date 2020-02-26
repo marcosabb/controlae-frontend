@@ -8,7 +8,7 @@ import {
 } from './styled'
 
 export default function Device ({
-  id, label, brand, gradient, handleUpdate, handleDelete
+  id, label, brand, handleUpdate, handleDelete
 }) {
   const [visible, setVisible] = useState(false)
 
@@ -24,7 +24,7 @@ export default function Device ({
     <Close handleClose={handleClose}>
       <Container>
         <Wrapper>
-          <Label gradient={gradient}>{label}</Label>
+          <Label>{label}</Label>
           <Brand>{brand}</Brand>
         </Wrapper>
 
@@ -49,7 +49,6 @@ Device.propTypes = {
   id: t.string.isRequired,
   label: t.string.isRequired,
   brand: t.string.isRequired,
-  gradient: t.string.isRequired,
   handleUpdate: t.func.isRequired,
   handleDelete: t.func.isRequired
 }

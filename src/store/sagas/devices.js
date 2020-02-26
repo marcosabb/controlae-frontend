@@ -7,19 +7,10 @@ import api from 'services/api'
 import { DevicesTypes, DevicesActions } from '../ducks/devices'
 
 function * fetchDevices () {
-  const gradient = {
-    Televisão: {
-      label: 'TV',
-      gradient: '#1e3c72, #2a5298'
-    },
-    Ventilador: {
-      label: 'VT',
-      gradient: '#48b1bf, #06beb6'
-    },
-    'Ar condicionado': {
-      label: 'AC',
-      gradient: '#eb3349, #f45c43'
-    }
+  const label = {
+    Televisão: 'TV',
+    Ventilador: 'VT',
+    'Ar condicionado': 'AC'
   }
 
   try {
@@ -27,8 +18,7 @@ function * fetchDevices () {
 
     const data = response.data.map(item => ({
       ...item,
-      label: gradient[item.type].label,
-      gradient: gradient[item.type].gradient
+      label: label[item.type]
     }))
 
     yield put(DevicesActions.fetchDevicesSuccess(data))

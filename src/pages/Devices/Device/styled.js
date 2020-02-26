@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { theme, prop, ifProp } from 'styled-tools'
+import { theme, ifProp } from 'styled-tools'
 import { MdMoreVert } from 'react-icons/md'
 
 export const Container = styled.div`
@@ -7,8 +7,8 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  padding-right: ${theme('spacing.xs')};
+  height: 60px;
+  padding: 0 ${theme('spacing.xs')} 0 ${theme('spacing.sm')};
   background-color: ${theme('colors.grey')};
   border: ${theme('border.primary')};
   border-radius: ${theme('radius.xs')};
@@ -24,13 +24,11 @@ export const Label = styled.div`
   display: flex;
   align-items: center;
   justify-content:center;
-  width: 50px;
-  height: 50px;
   margin-right: ${theme('spacing.sm')};
-  font-size: ${theme('font.sm')};
+  font-size: ${theme('font.default')};
   font-weight: 700;
-  color: ${theme('colors.white')};
-  background-image: linear-gradient(${prop('gradient')});
+  letter-spacing: 0.200rem;
+  color: ${theme('colors.text')};
   border-radius: ${theme('radius.xs')};
 `
 
@@ -69,7 +67,7 @@ export const Icon = styled(MdMoreVert).attrs({
 
 export const Options = styled.ul`
   position: absolute;
-  top: 53px;
+  top: 62px;
   right: -1px;
   z-index: 1;
   background-color: ${theme('colors.grey')};

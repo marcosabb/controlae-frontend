@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import media from 'styled-media-query'
 import { theme } from 'styled-tools'
 
 export const Container = styled.header`
@@ -23,6 +24,10 @@ export const Logout = styled.button`
   color: ${theme('colors.text')};
   border: none;
   cursor: pointer;
+
+  ${media.lessThan('medium')`
+    margin-right: ${theme('spacing.lg')};
+  `}
 
   &:focus {
     outline: none;

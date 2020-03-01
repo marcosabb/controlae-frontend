@@ -17,7 +17,7 @@ export const Container = styled.button`
   ${media.lessThan('medium')`
     position: absolute;
     top: ${theme('spacing.default')};
-    right: 65px;
+    right: ${theme('spacing.default')};
   `}
 
   ${media.greaterThan('medium')`

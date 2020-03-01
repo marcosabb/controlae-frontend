@@ -37,7 +37,7 @@ export default function Devices () {
       dispatch(DevicesActions.deleteDeviceRequest(id))
     }
   }, [dispatch])
-
+  console.log(data)
   return (
     <Container>
       <Wrapper>
@@ -52,21 +52,22 @@ export default function Devices () {
           <Empty>Você não possui nenhum dispositivo cadastrado.</Empty>
         )}
 
-        <List>
-          {(loading.fetch || !data)
-            ? <Loading full />
-            : data.map(({ _id, label, brand, gradient }) => (
-              <Device
-                key={_id}
-                id={_id}
-                label={label}
-                brand={brand}
-                gradient={gradient}
-                handleUpdate={() => handleUpdate(_id)}
-                handleDelete={() => handleDelete(_id)}
-              />
-            ))}
-        </List>
+        {(loading.fetch || !data)
+          ? <Loading full />
+          : (
+            <List>
+              {data.map(({ _id, type, brand, gradient }) => (
+                <Device
+                  key={_id}
+                  name={type}
+                  brand={brand}
+                  gradient={gradient}
+                  handleUpdate={() => handleUpdate(_id)}
+                  handleDelete={() => handleDelete(_id)}
+                />
+              ))}
+            </List>
+          )}
       </Wrapper>
     </Container>
   )

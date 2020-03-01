@@ -6,19 +6,19 @@ import api from 'services/api'
 
 import { DevicesTypes, DevicesActions } from '../ducks/devices'
 
-function * fetchDevices () {
-  const label = {
-    Televisão: 'TV',
-    Ventilador: 'VT',
-    'Ar condicionado': 'AC'
-  }
+const gradient = {
+  Televisão: '#eb3349, #f45c43',
+  Ventilador: '#48b1bf, #06beb6',
+  'Ar condicionado': '#1e3c72, #2a5298'
+}
 
+function * fetchDevices () {
   try {
     const response = yield call(api.get, 'dashboard/devices')
 
     const data = response.data.map(item => ({
       ...item,
-      label: label[item.type]
+      gradient: gradient[item.type]
     }))
 
     yield put(DevicesActions.fetchDevicesSuccess(data))

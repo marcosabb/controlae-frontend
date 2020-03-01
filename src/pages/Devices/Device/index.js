@@ -4,11 +4,11 @@ import t from 'prop-types'
 import Close from 'components/Close'
 
 import {
-  Container, Wrapper, Label, Brand, Dropdown, Button, Icon, Options, Option
+  Container, Wrapper, Name, Brand, Dropdown, Button, Icon, Options, Option
 } from './styled'
 
 export default function Device ({
-  id, label, brand, handleUpdate, handleDelete
+  name, brand, gradient, handleUpdate, handleDelete
 }) {
   const [visible, setVisible] = useState(false)
 
@@ -20,11 +20,12 @@ export default function Device ({
     if (visible) setVisible(false)
   }, [visible])
 
+  console.log(gradient)
   return (
     <Close handleClose={handleClose}>
-      <Container>
+      <Container gradient={gradient}>
         <Wrapper>
-          <Label>{label}</Label>
+          <Name>{name}</Name>
           <Brand>{brand}</Brand>
         </Wrapper>
 
@@ -46,9 +47,9 @@ export default function Device ({
 }
 
 Device.propTypes = {
-  id: t.string.isRequired,
-  label: t.string.isRequired,
+  name: t.string.isRequired,
   brand: t.string.isRequired,
+  gradient: t.string.isRequired,
   handleUpdate: t.func.isRequired,
   handleDelete: t.func.isRequired
 }
